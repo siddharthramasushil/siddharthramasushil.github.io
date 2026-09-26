@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Siddharth Rama Sushil — Robotics Software Engineer</title>
+<meta name="description" content="Siddharth Rama Sushil — robotics software engineer (M.S. ECE, UC San Diego). Amazon Robotics SDE intern; previously Robotics Engineer at Addverb. SLAM, perception, sim-to-real RL and agentic robot orchestration in C++ and ROS 2." />
+<link rel="canonical" href="https://siddharthramasushil.github.io/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://siddharthramasushil.github.io/" />
+<meta property="og:title" content="Siddharth Rama Sushil — Robotics Software Engineer" />
+<meta property="og:description" content="Robotics software: perception, SLAM, sim-to-real RL and agentic robot orchestration. Amazon Robotics · Addverb · UC San Diego." />
+<meta property="og:image" content="https://siddharthramasushil.github.io/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Siddharth Rama Sushil",
+  "jobTitle": "Robotics Software Engineer",
+  "url": "https://siddharthramasushil.github.io/",
+  "image": "https://siddharthramasushil.github.io/assets/og-image.jpg",
+  "email": "mailto:sramasushil@ucsd.edu",
+  "address": { "@type": "PostalAddress", "addressLocality": "San Diego", "addressRegion": "CA" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "University of California, San Diego" },
+    { "@type": "CollegeOrUniversity", "name": "Indian Institute of Information Technology, Jabalpur" }
+  ],
+  "knowsAbout": ["Robotics", "SLAM", "Computer Vision", "ROS 2", "C++", "Reinforcement Learning", "Sensor Fusion", "Vision-Language Models"],
+  "sameAs": [
+    "https://github.com/daatsi-aeres",
+    "https://www.linkedin.com/in/siddharth-rs/",
+    "https://medium.com/@siddharthramasushil"
+  ]
+}
+</script>
+
+<script>
+  // Set theme before first paint: saved choice, else OS preference
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.classList.add('js');
+  })();
+</script>
+
+<style>
+:root {
+  --bg: #FFFFFF;
+  --bg-alt: #F7F8FA;
+  --surface: #FFFFFF;
+  --line: #E6E8EC;
+  --line-strong: #D2D6DC;
+  --text: #16191F;
+  --muted: #555C68;
+  --faint: #7A818C;
+  --accent: #204097;           /* same blue as the resume */
+  --accent-rgb: 32, 64, 151;
+  --on-accent: #FFFFFF;
+  --max: 1200px;
+  --pad: 32px;
+  --font: 'Source Sans 3', 'Source Sans Pro', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-head: var(--font);
+  --r-lg: 16px; --r-md: 12px; --r-sm: 10px;
+  --sh-media: 0 18px 48px rgba(16, 24, 40, .12);
+  --sh-photo: 0 24px 60px rgba(16, 24, 40, .14);
+  --sh-hover: 0 18px 44px rgba(16, 24, 40, .10);
+  --title-align: center;
+  color-scheme: light;
+}
+html[data-theme="dark"] {
+  --bg: #101318;
+  --bg-alt: #151920;
+  --surface: #181D25;
+  --line: #262C36;
+  --line-strong: #363E4A;
+  --text: #E8EBF0;
+  --muted: #AAB1BC;
+  --faint: #868E9A;
+  --accent: #93ACF3;
+  --accent-rgb: 147, 172, 243;
+  --on-accent: #101318;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text); font-family: var(--font);
+  font-size: 18px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  transition: background-color .25s ease, color .25s ease;
+}
+img, video { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4, p { margin: 0; }
+ul, ol { margin: 0; padding: 0; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 8px 12px; border-radius: 8px; z-index: 100; }
+.skip:focus { left: 8px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+section[id], article[id] { scroll-margin-top: 88px; }
+
+.i { width: 20px; height: 20px; flex-shrink: 0; }
+.i-s { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.i-f { fill: currentColor; }
+
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---------- NAV ---------- */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50; height: 68px; display: flex; align-items: center;
+  background: rgba(255, 255, 255, .9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent; transition: border-color .25s;
+}
+html[data-theme="dark"] .nav { background: rgba(16, 19, 24, .9); }
+.nav.scrolled { border-color: var(--line); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; }
+.brand { font-weight: 700; font-size: 1.05rem; text-decoration: none; white-space: nowrap; }
+.nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+.nav-links a { font-size: 1rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.icon-btn {
+  width: 40px; height: 40px; border-radius: var(--r-sm); border: 1px solid var(--line); background: transparent;
+  color: var(--muted); display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.icon-btn:hover { color: var(--text); border-color: var(--line-strong); }
+html:not([data-theme="dark"]) .i-sun { display: none; }
+html[data-theme="dark"] .i-moon { display: none; }
+.menu-btn { display: none; }
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 9px; height: 48px; padding: 0 22px; border-radius: var(--r-sm);
+  font: 600 1rem var(--font); text-decoration: none; cursor: pointer; border: 1px solid transparent;
+  transition: transform .15s ease, border-color .2s, color .2s, filter .2s;
+}
+.btn .i { width: 18px; height: 18px; }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { transform: translateY(-1px); filter: brightness(1.08); }
+.btn-outline { background: transparent; color: var(--text); border-color: var(--line-strong); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- HERO ---------- */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 112px 0 72px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 72px; align-items: center; width: 100%; }
+.hero-photo img { width: 100%; height: auto; aspect-ratio: 5 / 4; object-fit: cover; border-radius: var(--r-lg); box-shadow: var(--sh-photo); }
+.hero h1 { font-family: var(--font-head); font-size: clamp(2.4rem, 3.8vw, 3.3rem); font-weight: 700; line-height: 1.06; letter-spacing: -.015em; margin-bottom: 16px; }
+.tagline { font-size: 1.3rem; font-weight: 600; color: var(--text); margin-bottom: 20px; }
+.tagline span { color: var(--line-strong); margin: 0 4px; font-weight: 400; }
+.tagline b { font-weight: inherit; white-space: nowrap; }
+.bio { font-size: 1.15rem; color: var(--muted); max-width: 32em; margin-bottom: 18px; }
+.avail { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 30px; }
+.avail .dot { width: 8px; height: 8px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 0 4px rgba(22, 163, 74, .15); flex-shrink: 0; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.worked { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 28px; }
+.worked a { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.worked strong { display: block; font-size: 1.02rem; line-height: 1.3; }
+.worked small { display: block; font-size: .92rem; color: var(--faint); line-height: 1.3; }
+.worked a:hover strong { color: var(--accent); }
+
+/* logo plates stay white so every logo reads in both themes */
+.logo { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #E6E8EC; border-radius: var(--r-md); }
+.logo img { height: 100%; width: auto; object-fit: contain; }
+.logo.round img { border-radius: 50%; }
+.worked .logo { width: 100px; height: 54px; padding: 8px 12px; }
+.worked .logo.round { padding: 5px; }
+
+/* ---------- SECTIONS ---------- */
+.section { padding: 128px 0; }
+.section.alt { background: var(--bg-alt); }
+.sec-title { text-align: var(--title-align); font-family: var(--font-head); font-size: clamp(2rem, 3.4vw, 2.5rem); font-weight: 700; letter-spacing: -.01em; line-height: 1.2; }
+.sec-sub { text-align: var(--title-align); color: var(--muted); font-size: 1.12rem; max-width: 40em; margin: 14px auto 0; }
+.sec-head { margin-bottom: 72px; }
+
+/* ---------- ABOUT ---------- */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 80px; align-items: center; }
+.about-text p { font-size: 1.2rem; color: var(--muted); line-height: 1.75; }
+.about-text p + p { margin-top: 20px; }
+.about-text strong { color: var(--text); font-weight: 600; }
+.edu-list { display: flex; flex-direction: column; gap: 32px; }
+.edu { display: flex; gap: 20px; align-items: center; }
+.edu .logo { width: 72px; height: 72px; padding: 5px; }
+.edu h3 { font-size: 1.15rem; line-height: 1.3; }
+.edu p { color: var(--muted); font-size: 1rem; }
+
+/* ---------- EXPERIENCE ---------- */
+.company + .company { margin-top: 112px; padding-top: 112px; border-top: 1px solid var(--line); }
+.company-head { display: flex; align-items: center; gap: 24px; margin-bottom: 56px; }
+.company-head .logo { width: 176px; height: 80px; padding: 14px 20px; }
+.company-head .logo img { max-width: 100%; }
+.company-head .logo.round { padding: 6px; }
+.company-head h3 { font-size: 1.7rem; line-height: 1.25; letter-spacing: -.01em; }
+.company-head .role { font-size: 1.1rem; color: var(--muted); }
+.company-head .dates { margin-left: auto; font-size: 1.02rem; font-weight: 600; color: var(--faint); white-space: nowrap; }
+.row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: center; }
+.row + .row { margin-top: 88px; }
+.row.flip { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.row.flip .row-media { order: -1; }
+.row h4 { font-size: 1.35rem; font-weight: 600; line-height: 1.35; margin-bottom: 12px; }
+.row p { color: var(--muted); font-size: 1.08rem; line-height: 1.75; }
+.row p b { color: var(--text); font-weight: 600; }
+.video { border-radius: var(--r-md); overflow: hidden; background: #0B0D12; box-shadow: var(--sh-media); }
+.video { position: relative; aspect-ratio: 16 / 9; }
+.video video { width: 100%; height: 100%; object-fit: cover; }
+.video .cycle { position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease; }
+.video .cycle.active { opacity: 1; }
+
+
+/* ---------- CARDS (projects / awards / blog) ---------- */
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, border-color .2s; }
+.card:hover { transform: translateY(-4px); box-shadow: var(--sh-hover); }
+.card-media { position: relative; aspect-ratio: 16 / 10; background: #0B0D12; overflow: hidden; }
+.card-media video, .card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.card-media.contain video, .card-media.contain img { object-fit: contain; }
+.card-media.light { background: var(--bg-alt); }
+.card-media .cycle { opacity: 0; transition: opacity .5s ease; }
+.card-media .cycle.active { opacity: 1; }
+.card-body { padding: 26px 28px 28px; display: flex; flex-direction: column; flex: 1; }
+.card-body h3 { font-size: 1.22rem; line-height: 1.35; margin-bottom: 10px; }
+.card-body p { color: var(--muted); font-size: 1.02rem; line-height: 1.65; }
+.card-foot { margin-top: auto; padding-top: 18px; }
+.card-foot .meta { font-size: .95rem; color: var(--faint); }
+.card-foot .links { min-height: 26px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 12px; }
+.links a { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--accent); text-decoration: none; font-size: .98rem; }
+.links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.links .i { width: 16px; height: 16px; }
+.links .multi { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--accent); font-size: .98rem; }
+.links .multi a { gap: 0; }
+.year { color: var(--faint); font-weight: 600; font-size: .95rem; margin-bottom: 4px; }
+.go { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 16px; font-weight: 600; color: var(--accent); }
+.go .i { width: 16px; height: 16px; }
+.clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.award-img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; object-position: 50% 50%; background: var(--bg-alt); }
+.patent { display: flex; gap: 20px; align-items: center; justify-content: center; margin: 0 auto 56px; max-width: 900px; }
+.patent .i { width: 28px; height: 28px; color: var(--accent); }
+.patent h3 { font-size: 1.15rem; line-height: 1.4; }
+.patent p { color: var(--faint); font-size: .98rem; }
+.center { display: flex; justify-content: center; margin-top: 56px; }
+
+/* ---------- CONTACT ---------- */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: stretch; }
+.contact-icons { display: flex; flex-wrap: wrap; gap: 26px; margin-bottom: 30px; }
+.ci { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; color: var(--muted); }
+.ci:hover { color: var(--accent); }
+.ci-icon { width: 60px; height: 60px; border-radius: var(--r-md); border: 1px solid var(--line); background: var(--surface); display: flex; align-items: center; justify-content: center; transition: border-color .2s, transform .15s; }
+.ci:hover .ci-icon { border-color: var(--accent); transform: translateY(-2px); }
+.ci-icon .i { width: 24px; height: 24px; }
+.ci-label { font-size: .95rem; }
+.contact-note { color: var(--muted); font-size: 1.12rem; margin-bottom: 20px; }
+.contact-lines { display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px; }
+.contact-lines a, .contact-lines span { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.contact-lines a:hover { color: var(--accent); }
+.contact-lines .i { color: var(--accent); width: 18px; height: 18px; }
+.map { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16 / 8; background: var(--bg-alt); }
+.map iframe { width: 100%; height: 100%; border: 0; display: block; }
+html[data-theme="dark"] .map iframe { filter: invert(.9) hue-rotate(180deg) saturate(.6) brightness(.95); }
+.map-cap { font-size: .95rem; color: var(--faint); margin-top: 10px; text-align: center; }
+.form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 36px 38px; display: flex; flex-direction: column; gap: 20px; }
+.form h3 { font-size: 1.3rem; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { font-size: .95rem; font-weight: 600; color: var(--muted); }
+.field input, .field textarea { width: 100%; font: inherit; font-size: 1rem; color: var(--text); background: var(--bg); border: 1px solid var(--line-strong); border-radius: var(--r-sm); padding: 12px 14px; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(var(--accent-rgb), .15); }
+.field textarea { min-height: 150px; resize: vertical; flex: 1; }
+.field.grow { flex: 1; }
+.form-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.form-note { font-size: .92rem; color: var(--faint); }
+.form-note.ok { color: #15803D; font-weight: 600; }
+.form-note.err { color: #B42318; font-weight: 600; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.btn[disabled] { opacity: .6; cursor: wait; }
+
+/* ---------- FOOTER ---------- */
+.footer { border-top: 1px solid var(--line); padding: 36px 0; }
+.footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--faint); font-size: .98rem; }
+.footer a { color: var(--muted); text-decoration: none; }
+.footer a:hover { color: var(--accent); }
+
+/* ---------- MOBILE MENU ---------- */
+.drawer { position: fixed; inset: 0; z-index: 60; display: none; }
+.drawer.open { display: block; }
+.drawer-bg { position: absolute; inset: 0; background: rgba(0, 0, 0, .45); }
+.drawer-panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(320px, 86vw); background: var(--surface); padding: 20px 24px; display: flex; flex-direction: column; }
+.drawer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.drawer-panel a.dl { display: flex; align-items: center; min-height: 52px; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid var(--line); }
+.drawer-panel .btn { margin-top: 22px; justify-content: center; }
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1100px) {
+  .hero-grid { gap: 56px; }
+  .row { gap: 44px; }
+  .grid3 { gap: 28px; }
+}
+@media (max-width: 920px) {
+  .nav-links { display: none; }
+  .menu-btn { display: inline-flex; }
+  .hero { min-height: 0; padding-top: 100px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-photo { max-width: 620px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+  .row, .row.flip { grid-template-columns: 1fr; gap: 28px; }
+  .row .row-media, .row.flip .row-media { order: -1; }
+  .grid3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  :root { --pad: 20px; }
+  body { font-size: 17px; }
+  .section { padding: 88px 0; }
+  .sec-head { margin-bottom: 52px; }
+  .hero { padding: 88px 0 56px; }
+  .tagline { display: flex; flex-wrap: wrap; column-gap: 16px; font-size: 1.15rem; }
+  .tagline span { display: none; }
+  .worked { grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
+  .company + .company { margin-top: 72px; padding-top: 72px; }
+  .company-head { flex-wrap: wrap; gap: 14px 18px; margin-bottom: 36px; }
+  .company-head .logo { width: 140px; height: 64px; padding: 11px 16px; }
+  .company-head .logo.round { padding: 5px; }
+  .company-head .dates { margin-left: 0; width: 100%; }
+  .company-head h3 { font-size: 1.4rem; }
+  .row + .row { margin-top: 64px; }
+  .grid3, .form-grid { grid-template-columns: 1fr; }
+  .blog .card:nth-child(n+4) { display: none; }
+  .form { padding: 26px 22px; }
+  .patent { align-items: flex-start; justify-content: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="i-medium" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Siddharth Rama Sushil</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="i i-s i-moon"><use href="#i-moon"/></svg>
+        <svg class="i i-s i-sun"><use href="#i-sun"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <svg class="i i-s"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-bg" data-close></div>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-top">
+      <strong>Menu</strong>
+      <button class="icon-btn" type="button" data-close aria-label="Close menu"><svg class="i i-s"><use href="#i-x"/></svg></button>
+    </div>
+    <a class="dl" href="#about">About</a>
+    <a class="dl" href="#experience">Experience</a>
+    <a class="dl" href="#projects">Projects</a>
+    <a class="dl" href="#achievements">Achievements</a>
+    <a class="dl" href="#blog">Blog</a>
+    <a class="dl" href="#contact">Contact</a>
+    <a class="btn btn-primary" href="assets/SiddharthRamaSushil_resume.pdf" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-download"/></svg> Resume</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-photo">
+        <img src="assets/portrait-wide.webp" alt="Siddharth Rama Sushil in front of Geisel Library, UC San Diego" width="1250" height="1000" fetchpriority="high" />
+      </div>
+      <div>
+        <h1>Siddharth Rama Sushil</h1>
+        <p class="tagline"><b>Robotics Software</b> <span>|</span> <b>Computer Vision</b> <span>|</span> <b>Deep Learning</b></p>
+        <p class="bio">I build perception, SLAM and robot-learning software that holds up on real hardware, from warehouse robots to dexterous hands. M.S. ECE at UC San Diego.</p>
+        <p class="avail"><span class="dot" aria-hidden="true"></span>Graduating March 2027 · open to full-time robotics software roles</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#contact">Get In Touch <svg class="i i-s"><use href="#i-send"/></svg></a>
+          <a class="btn btn-outline" href="#projects">View Projects</a>
+          <a class="btn btn-outline" href="assets/SiddharthRamaSushil_resume.pdf" target="_blank" rel="noopener">View CV</a>
+        </div>
+        <div class="worked">
+          <a href="#exp-amazon">
+            <span class="logo"><img src="assets/logos/amazon-robotics.svg" alt="Amazon Robotics logo" /></span>
+            <span><strong>Amazon Robotics</strong><small>SDE Intern</small></span>
+          </a>
+          <a href="#exp-addverb">
+            <span class="logo"><img src="assets/logos/addverb.webp" alt="Addverb logo" /></span>
+            <span><strong>Addverb</strong><small>Robotics Engineer</small></span>
+          </a>
+          <a href="#exp-ucsd">
+            <span class="logo round"><img src="assets/ucsd.webp" alt="UC San Diego logo" /></span>
+            <span><strong>UC San Diego</strong><small>Student Researcher</small></span>
+          </a>
+          <a href="#exp-drdo">
+            <span class="logo round"><img src="assets/drdo.webp" alt="DRDO logo" /></span>
+            <span><strong>DRDO</strong><small>Research Intern</small></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ABOUT -->
+<section class="section alt" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2 class="sec-title">About Me</h2></div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a robotics software engineer and M.S. student at <strong>UC San Diego</strong>, specializing in Intelligent Systems, Robotics &amp; Control. I've shipped perception and SLAM systems for warehouse robots at <strong>Addverb</strong>, built the layer that turns vision-language-model plans into robot skills at <strong>Amazon Robotics</strong>, and work on sim-to-real dexterous manipulation at UCSD's ARClab.</p>
+        <p>Geometry-grounded methods where reliability matters, learned policies where generalization matters.</p>
+      </div>
+      <div class="edu-list reveal">
+        <div class="edu">
+          <span class="logo round"><img src="assets/ucsd.webp" alt="UC San Diego logo" /></span>
+          <div><h3>University of California, San Diego</h3><p>M.S. Electrical &amp; Computer Engineering · Sep 2025 – Present</p></div>
+        </div>
+        <div class="edu">
+          <span class="logo round"><img src="assets/iiit.webp" alt="IIIT Jabalpur logo" /></span>
+          <div><h3>IIIT Jabalpur</h3><p>B.Tech Mechanical Engineering · 2019 – 2023 · Top 5% of batch</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2 class="sec-title">Experience</h2></div>
+
+    <!-- Amazon Robotics -->
+    <article class="company reveal" id="exp-amazon">
+      <header class="company-head">
+        <span class="logo"><img src="assets/logos/amazon-robotics.svg" alt="Amazon Robotics logo" /></span>
+        <div><h3>Amazon Robotics</h3><p class="role">Software Development Engineer Intern</p></div>
+        <p class="dates">Jun 2026 – Sep 2026</p>
+      </header>
+      <div class="row">
+        <div>
+          <h4>Agentic Robotics Orchestration</h4>
+          <p>Designed and shipped the <b>production C++ library</b> that validates, dispatches and tracks the robot skills a vision-language model plans, with non-blocking ROS 2 execution. Fault-injection tests over DDS caught a crash bug before release, and I brought up a <b>hardware-in-the-loop</b> bench on ARM64.</p>
+        </div>
+        <div class="row-media"><div class="video"><video data-lazy muted loop playsinline preload="none" src="assets/videos/agentic-orchestration.mp4" data-poster="assets/videos/agentic-orchestration.poster.webp" aria-label="Animation of the agentic orchestration flow: a spoken command, a vision-language model plan, skill dispatch, then real-time control"></video></div></div>
+      </div>
+    </article>
+
+    <!-- Addverb -->
+    <article class="company reveal" id="exp-addverb">
+      <header class="company-head">
+        <span class="logo"><img src="assets/logos/addverb.webp" alt="Addverb logo" /></span>
+        <div><h3>Addverb Technologies</h3><p class="role">Robotics Engineer</p></div>
+        <p class="dates">Aug 2023 – Jul 2025</p>
+      </header>
+
+      <div class="row">
+        <div>
+          <h4>Object Recognition &amp; 6-DoF Pose Estimation</h4>
+          <p>Lead architect of the perception stack for production robots, from detection through pose refinement, running on edge hardware. A self-calibrating camera held <b>±2 mm</b> accuracy by correcting for structural droop.</p>
+        </div>
+        <div class="row-media"><div class="video"><video data-lazy muted loop playsinline preload="none" src="assets/gifs/velo2.mp4" data-poster="assets/gifs/velo2.poster.webp" aria-label="6-DoF pose estimation"></video></div></div>
+      </div>
+
+      <div class="row flip">
+        <div>
+          <h4>Visual–Inertial SLAM Diagnostics</h4>
+          <p>A real-time ORB-SLAM health indicator and debugging portal cut field debug time by <b>40%</b>; a Kalman-filter fusion module bridged localization gaps between floor barcodes.</p>
+        </div>
+        <div class="row-media"><div class="video"><video data-lazy muted loop playsinline preload="none" src="assets/gifs/slam-velo.mp4" data-poster="assets/gifs/slam-velo.poster.webp" aria-label="Warehouse robot running visual-inertial SLAM"></video></div></div>
+      </div>
+
+      <div class="row">
+        <div>
+          <h4>Semantic Segmentation &amp; Scene Understanding</h4>
+          <p>Compact, quantized models segment SKUs, chargers and conveyors; linking scene understanding with error logs made rare failures <b>45%</b> faster to debug.</p>
+        </div>
+        <div class="row-media"><div class="video"><video data-lazy muted loop playsinline preload="none" src="assets/gifs/velo3.mp4" data-poster="assets/gifs/velo3.poster.webp" aria-label="Robot in warehouse racking"></video></div></div>
+      </div>
+
+      <div class="row flip">
+        <div>
+          <h4>Simulation Fidelity</h4>
+          <p>Sensor noise, IMU bias, network latency and domain randomization in simulation, so software validated in sim held up on real robots.</p>
+        </div>
+        <div class="row-media"><div class="video"><video data-lazy muted loop playsinline preload="none" src="assets/gifs/simu_velo.mp4" data-poster="assets/gifs/simu_velo.poster.webp" aria-label="Robot simulation"></video></div></div>
+      </div>
+
+      <div class="row">
+        <div>
+          <h4>Deployment &amp; DevOps</h4>
+          <p>Dockerized the ROS stack with CI/CD that ships images to robots on push, and led on-site deployments with <b>Siemens, ISITEC and Adidas</b>.</p>
+        </div>
+        <div class="row-media"><div class="video"><video data-lazy muted loop playsinline preload="none" src="assets/gifs/goa_velo.mp4" data-poster="assets/gifs/goa_velo.poster.webp" aria-label="Robots deployed on site"></video></div></div>
+      </div>
+    </article>
+
+    <!-- UC San Diego research -->
+    <article class="company reveal" id="exp-ucsd">
+      <header class="company-head">
+        <span class="logo round"><img src="assets/ucsd.webp" alt="UC San Diego logo" /></span>
+        <div><h3>UC San Diego</h3><p class="role">Student Researcher, ARClab · Advisor: Prof. Michael Yip</p></div>
+        <p class="dates">Sep 2025 – Present</p>
+      </header>
+      <div class="row">
+        <div>
+          <h4>Sim-to-Real Dexterous Manipulation</h4>
+          <p>Training multi-fingered grasping policies in NVIDIA Isaac Sim with a teacher-student framework aimed at <b>zero-shot sim-to-real transfer</b>, using density-based and safety curricula for collision-aware grasping.</p>
+        </div>
+        <div class="row-media"><div class="video" data-cycle>
+          <video class="cycle active" muted playsinline preload="none" src="assets/videos/robot-picks-clutter.mp4" data-poster="assets/videos/robot-picks-clutter.poster.webp" aria-label="Robot picking objects from clutter in NVIDIA Isaac Sim"></video>
+          <video class="cycle" muted playsinline preload="none" src="assets/gifs/full_grasp_pick.mp4" data-poster="assets/gifs/full_grasp_pick.poster.webp" aria-label="Grasp-and-pick policy in NVIDIA Isaac Sim"></video>
+        </div></div>
+      </div>
+    </article>
+
+    <!-- DRDO -->
+    <article class="company reveal" id="exp-drdo">
+      <header class="company-head">
+        <span class="logo round"><img src="assets/drdo.webp" alt="DRDO logo" /></span>
+        <div><h3>Defence Research and Development Organisation</h3><p class="role">Research Intern</p></div>
+        <p class="dates">Jan 2023 – Jul 2023</p>
+      </header>
+      <div class="row">
+        <div>
+          <h4>Infrared Small Target Detection</h4>
+          <p>CNN-based detection of small infrared targets under low signal-to-noise ratio, with custom denoising, pixel-level annotated datasets and validation on edge hardware.</p>
+        </div>
+        <div class="row-media"><div class="video"><video data-lazy muted loop playsinline preload="none" src="assets/gifs/drdo_point.mp4" data-poster="assets/gifs/drdo_point.poster.webp" aria-label="Small-target detection in infrared frames"></video></div></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section alt" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2 class="sec-title">Featured Projects</h2></div>
+    <div class="grid3">
+
+      <article class="card reveal">
+        <div class="card-media" data-cycle>
+          <video class="cycle active" muted playsinline preload="none" src="assets/videos/smolvam.mp4" data-poster="assets/videos/smolvam.poster.webp" data-switch-at="20"></video>
+          <video class="cycle" muted playsinline preload="none" src="assets/videos/generated.mp4" data-poster="assets/videos/generated.poster.webp"></video>
+          <video class="cycle" muted playsinline preload="none" src="assets/videos/generated2.mp4" data-poster="assets/videos/generated2.poster.webp"></video>
+          <video class="cycle" muted playsinline preload="none" src="assets/videos/generated3.mp4" data-poster="assets/videos/generated3.poster.webp"></video>
+        </div>
+        <div class="card-body">
+          <h3>SmolVAM: Robot Control with Small Video Action Models</h3>
+          <p>A 0.7B video model, LoRA-tuned on ~0.1% of its weights, imagines future frames; a flow-matching decoder turns them into actions. 60% success on Cube Stack with a Franka arm.</p>
+          <div class="card-foot">
+          <p class="meta">LoRA · Flow Matching · VideoMAE · MuJoCo</p>
+          <div class="links">
+            <a href="https://github.com/daatsi-aeres/smolvam" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-code"/></svg>Code</a>
+            <a href="assets/pdfs/smolvam-report.pdf" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-file"/></svg>Report</a>
+          </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media" data-cycle>
+          <video class="cycle active" muted playsinline preload="none" src="assets/videos/orb_loop_closure.mp4" data-poster="assets/videos/orb_loop_closure.poster.webp" data-switch-at="20"></video>
+          <video class="cycle" muted playsinline preload="none" src="assets/videos/orb_slam.mp4" data-poster="assets/videos/orb_slam.poster.webp"></video>
+          <video class="cycle" muted playsinline preload="none" src="assets/videos/deblur.mp4" data-poster="assets/videos/deblur.poster.webp" data-switch-at="10"></video>
+        </div>
+        <div class="card-body">
+          <h3>Robust ORB-SLAM Pipeline</h3>
+          <p>CLAHE contrast enhancement and Wiener deblurring in front of ORB-SLAM3 keep feature tracking stable under camera shake and changing light. Real-time, stereo–inertial.</p>
+          <div class="card-foot">
+          <p class="meta">ORB-SLAM3 · C++ · RealSense D435i · Docker</p>
+          <div class="links">
+            <a href="https://github.com/daatsi-aeres/robust-orb-slam3" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-code"/></svg>Code</a>
+            <a href="assets/pdfs/robust-orb-slam-report.pdf" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-file"/></svg>Report</a>
+          </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media" data-cycle>
+          <video class="cycle active" muted playsinline preload="none" src="assets/videos/lidar-slam-occupancy.mp4" data-poster="assets/videos/lidar-slam-occupancy.poster.webp"></video>
+          <video class="cycle" muted playsinline preload="none" src="assets/videos/lidar-slam-texture.mp4" data-poster="assets/videos/lidar-slam-texture.poster.webp"></video>
+        </div>
+        <div class="card-body">
+          <h3>Multimodal SLAM &amp; State Estimation</h3>
+          <p>LiDAR SLAM with ICP and GTSAM loop closure, visual–inertial SLAM with an EKF on SE(3), and IMU orientation tracking via quaternion kinematics.</p>
+          <div class="card-foot">
+          <p class="meta">LiDAR SLAM · GTSAM · EKF · VIO</p>
+          <div class="links">
+            <a href="https://github.com/daatsi-aeres/multimodal-slam" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-code"/></svg>Code</a>
+            <span class="multi"><svg class="i i-s"><use href="#i-file"/></svg>Reports:
+              <a href="assets/pdfs/lidar-slam-report.pdf" target="_blank" rel="noopener">LiDAR</a>·<a href="assets/pdfs/vi-slam-report.pdf" target="_blank" rel="noopener">VIO</a>·<a href="assets/pdfs/imu-orientation-panorama-report.pdf" target="_blank" rel="noopener">IMU</a></span>
+          </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media">
+          <video data-lazy muted loop playsinline preload="none" src="assets/gifs/ransac.mp4" data-poster="assets/gifs/ransac.poster.webp" aria-label="RANSAC ground plane segmentation"></video>
+        </div>
+        <div class="card-body">
+          <h3>Efficient RANSAC Ground-Plane Segmentation</h3>
+          <p>IMU-aided RANSAC that cuts computation for real-time ground-plane detection.</p>
+          <div class="card-foot">
+          <p class="meta">C++ · OpenCV · RANSAC · IMU</p>
+          <div class="links" aria-hidden="true"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media">
+          <video data-lazy muted loop playsinline preload="none" src="assets/gifs/velo1.mp4" data-poster="assets/gifs/velo1.poster.webp" aria-label="Plane segmentation on a point cloud"></video>
+        </div>
+        <div class="card-body">
+          <h3>Robust Plane Segmentation for 3D Pose Estimation</h3>
+          <p>Geometry-first, real-time plane segmentation that feeds high-precision pose estimation.</p>
+          <div class="card-foot">
+          <p class="meta">C++ · Point Clouds · Sensor Fusion</p>
+          <div class="links">
+            <a href="https://github.com/daatsi-aeres/plane_segmentation_tool" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-code"/></svg>Code</a>
+            <a href="https://medium.com/@siddharthramasushil/building-a-robust-plane-segmentation-pipeline-for-3d-pose-estimation-in-robotics-cb89243492fb" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-file"/></svg>Article</a>
+          </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media light">
+          <img src="assets/photos/uv-bot.webp" alt="UV disinfectant robot renders and prototype" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>UV Disinfectant Robot</h3>
+          <p>Autonomous UV-disinfection robot with coverage patterns that maximize area while saving power.</p>
+          <div class="card-foot">
+          <p class="meta">C++ · Coverage Planning · Embedded</p>
+          <div class="links" aria-hidden="true"></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="section" id="achievements">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2 class="sec-title">Achievements</h2></div>
+
+    <div class="patent reveal">
+      <svg class="i i-s"><use href="#i-file"/></svg>
+      <div>
+        <h3>Published patent: real-time 3D positioning of a crane hook</h3>
+        <p>Co-inventor · Intellectual Property India, 2023 · Application No. 202321075984</p>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <a class="card reveal" href="https://www.ltts.com/press-release/TECHgium-5th-edition" target="_blank" rel="noopener">
+        <img class="award-img" src="assets/awards/techgium.webp" alt="Receiving the L&amp;T Techgium award" loading="lazy" />
+        <div class="card-body">
+          <p class="year">2022</p>
+          <h3>National Winner, L&amp;T Techgium</h3>
+          <p>1st prize of $12,000 among 30k+ students.</p>
+          <span class="go">Press release <svg class="i i-s"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+      <a class="card reveal" href="https://www.youtube.com/watch?v=HKQE6MwhfGc" target="_blank" rel="noopener">
+        <img class="award-img" src="assets/awards/gold.webp" alt="Gold medal ceremony at IIIT Jabalpur" loading="lazy" />
+        <div class="card-body">
+          <p class="year">2024</p>
+          <h3>Gold Medalist, IIIT Jabalpur</h3>
+          <p>Best cross-disciplinary project of 400+ students.</p>
+          <span class="go">Watch <svg class="i i-s"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+      <a class="card reveal" href="https://www.youtube.com/watch?v=-dYebImLJpM" target="_blank" rel="noopener">
+        <img class="award-img" src="assets/awards/latrobe.webp" alt="TIGC award letter from La Trobe University" loading="lazy" />
+        <div class="card-body">
+          <p class="year">2023</p>
+          <h3>TIGC Grant Awardee</h3>
+          <p>Top 10 of 200+ teams across Asia at La Trobe University.</p>
+          <span class="go">Watch <svg class="i i-s"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section alt blog" id="blog">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="sec-title">Personal Blog</h2>
+      <p class="sec-sub">I write to share lessons, mistakes and breakthroughs, to make learning smoother for aspiring roboticists.</p>
+    </div>
+    <div class="grid3">
+      <a class="card reveal" href="https://medium.com/@siddharthramasushil/hands-on-slam-frontend-part-2-d16ba9902987" target="_blank" rel="noopener">
+        <div class="card-media light"><video data-lazy muted loop playsinline preload="none" src="assets/blog/slam1.mp4" data-poster="assets/blog/slam1.poster.webp"></video></div>
+        <div class="card-body">
+          <h3>Hands-on SLAM Frontend: Landmark Lifecycle</h3>
+          <p class="clamp">If triangulation works so well, why not keep doing it forever between consecutive frames?</p>
+          <span class="go">Read on Medium <svg class="i i-s"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+      <a class="card reveal" href="https://medium.com/@siddharthramasushil/frontend-slam-the-essential-struggles-every-beginner-needs-ecca3532e821" target="_blank" rel="noopener">
+        <div class="card-media light"><img src="assets/blog/slam2.webp" alt="" loading="lazy" /></div>
+        <div class="card-body">
+          <h3>Hands-on SLAM: Building a Visual Frontend Pipeline</h3>
+          <p class="clamp">Bundle adjustment, loop closure, pose-graph optimization: where do you even start?</p>
+          <span class="go">Read on Medium <svg class="i i-s"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+      <a class="card reveal" href="https://medium.com/@siddharthramasushil/math-that-helps-robots-see-svd-ed2967e5ed59" target="_blank" rel="noopener">
+        <div class="card-media light"><video data-lazy muted loop playsinline preload="none" src="assets/blog/svd.mp4" data-poster="assets/blog/svd.poster.webp"></video></div>
+        <div class="card-body">
+          <h3>Demystifying SVD: The Math Powering Visual SLAM</h3>
+          <p class="clamp">The mathematical Swiss Army knife behind many core problems in robot vision.</p>
+          <span class="go">Read on Medium <svg class="i i-s"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+      <a class="card reveal" href="https://medium.com/@siddharthramasushil/epipolar-geometry-in-practice-build-visualize-understand-384959ecf69c" target="_blank" rel="noopener">
+        <div class="card-media light"><video data-lazy muted loop playsinline preload="none" src="assets/blog/epipolar.mp4" data-poster="assets/blog/epipolar.poster.webp"></video></div>
+        <div class="card-body">
+          <h3>Epipolar Geometry in Practice</h3>
+          <p class="clamp">A tiny C++/OpenCV repo to feel epipolar geometry instead of just reading about it.</p>
+          <span class="go">Read on Medium <svg class="i i-s"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+      <a class="card reveal" href="https://medium.com/@siddharthramasushil/the-math-that-makes-robots-see-a-fellow-beginners-guide-to-computer-vision-math-pa-6f9a870fddec" target="_blank" rel="noopener">
+        <div class="card-media light"><img src="assets/blog/mathrobot.webp" alt="" loading="lazy" /></div>
+        <div class="card-body">
+          <h3>Foundations of Robot Perception</h3>
+          <p class="clamp">A beginner's guide to the math behind how robots see and track their own motion.</p>
+          <span class="go">Read on Medium <svg class="i i-s"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+      <a class="card reveal" href="https://medium.com/@siddharthramasushil/building-a-robust-plane-segmentation-pipeline-for-3d-pose-estimation-in-robotics-cb89243492fb" target="_blank" rel="noopener">
+        <div class="card-media light"><video data-lazy muted loop playsinline preload="none" src="assets/blog/planeseg.mp4" data-poster="assets/blog/planeseg.poster.webp"></video></div>
+        <div class="card-body">
+          <h3>Robust Plane Segmentation for 3D Pose Estimation</h3>
+          <p class="clamp">The quiet, low-level problem that makes or breaks an industrial robot.</p>
+          <span class="go">Read on Medium <svg class="i i-s"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+    </div>
+    <div class="center reveal"><a class="btn btn-outline" href="https://medium.com/@siddharthramasushil" target="_blank" rel="noopener"><svg class="i i-f"><use href="#i-medium"/></svg>All posts on Medium</a></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2 class="sec-title">Get In Touch</h2></div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-icons">
+          <a class="ci" href="mailto:sramasushil@ucsd.edu"><span class="ci-icon"><svg class="i i-f"><use href="#i-mail"/></svg></span><span class="ci-label">Email</span></a>
+          <a class="ci" href="tel:+18582146356"><span class="ci-icon"><svg class="i i-f"><use href="#i-phone"/></svg></span><span class="ci-label">Phone</span></a>
+          <a class="ci" href="https://www.linkedin.com/in/siddharth-rs/" target="_blank" rel="noopener"><span class="ci-icon"><svg class="i i-f"><use href="#i-linkedin"/></svg></span><span class="ci-label">LinkedIn</span></a>
+          <a class="ci" href="https://github.com/daatsi-aeres" target="_blank" rel="noopener"><span class="ci-icon"><svg class="i i-f"><use href="#i-github"/></svg></span><span class="ci-label">GitHub</span></a>
+          <a class="ci" href="https://medium.com/@siddharthramasushil" target="_blank" rel="noopener"><span class="ci-icon"><svg class="i i-f"><use href="#i-medium"/></svg></span><span class="ci-label">Medium</span></a>
+        </div>
+        <p class="contact-note">Open to robotics software roles and research collaborations. I usually reply within a day or two.</p>
+        <div class="contact-lines">
+          <a href="mailto:sramasushil@ucsd.edu"><svg class="i i-f"><use href="#i-mail"/></svg>sramasushil@ucsd.edu</a>
+          <a href="tel:+18582146356"><svg class="i i-f"><use href="#i-phone"/></svg>+1 (858) 214-6356</a>
+          <span><svg class="i i-s"><use href="#i-pin"/></svg>San Diego, CA</span>
+        </div>
+        <div class="map">
+          <iframe title="Map of UC San Diego" src="https://maps.google.com/maps?q=University%20of%20California%20San%20Diego&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p class="map-cap">UC San Diego, where you'll find me most days.</p>
+      </div>
+
+      <form class="form reveal" id="contactForm" action="https://formsubmit.co/sramasushil@ucsd.edu" method="POST">
+        <input type="hidden" name="_subject" value="New message from your portfolio" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <h3>Send a message</h3>
+        <div class="form-grid">
+          <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" autocomplete="name" required /></div>
+          <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required /></div>
+        </div>
+        <div class="field"><label for="cf-subject">Subject</label><input id="cf-subject" name="subject" type="text" required /></div>
+        <div class="field grow"><label for="cf-message">Message</label><textarea id="cf-message" name="message" required></textarea></div>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit" id="cfSend"><svg class="i i-s"><use href="#i-send"/></svg>Send Message</button>
+          <span class="form-note" id="cfStatus" role="status" aria-live="polite">Goes straight to my inbox.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year">2026</span> Siddharth Rama Sushil</span>
+    <a href="https://github.com/daatsi-aeres" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var doc = document.documentElement;
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.getElementById('themeToggle').addEventListener('click', function () {
+    var next = doc.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    doc.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  var nav = document.getElementById('nav');
+  var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  var drawer = document.getElementById('drawer'), menuBtn = document.getElementById('menuBtn');
+  function setDrawer(open) {
+    drawer.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', String(!open));
+    menuBtn.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  menuBtn.addEventListener('click', function () { setDrawer(true); });
+  drawer.querySelectorAll('[data-close], a').forEach(function (el) { el.addEventListener('click', function () { setDrawer(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setDrawer(false); });
+
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function (el) { ro.observe(el); });
+  } else { reveals.forEach(function (el) { el.classList.add('in'); }); }
+
+  // Highlight the section in view; clear it while above the first section
+  var links = document.querySelectorAll('.nav-links a');
+  var firstSection = document.getElementById('about');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY + window.innerHeight * 0.5 < firstSection.offsetTop) links.forEach(function (l) { l.classList.remove('active'); });
+  }, { passive: true });
+  var so = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      links.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id); });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section[id]').forEach(function (s) { so.observe(s); });
+
+  // Contact form: send through FormSubmit without leaving the page; fall back to email on failure
+  var form = document.getElementById('contactForm'), status = document.getElementById('cfStatus'), send = document.getElementById('cfSend');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (form._honey.value) return;
+    send.disabled = true; status.className = 'form-note'; status.textContent = 'Sending…';
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+    fetch('https://formsubmit.co/ajax/sramasushil@ucsd.edu', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data)
+    }).then(function (r) { return r.json().then(function (j) { if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || 'failed'); }); })
+      .then(function () { form.reset(); status.className = 'form-note ok'; status.textContent = 'Thanks! Your message was sent.'; })
+      .catch(function () {
+        status.className = 'form-note err';
+        status.innerHTML = 'Couldn\u2019t send right now. Please email <a href="mailto:sramasushil@ucsd.edu">sramasushil@ucsd.edu</a>.';
+      })
+      .then(function () { send.disabled = false; });
+  });
+
+  // Still frames: attach each video's poster just before it scrolls into view
+  var posterIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var v = e.target; if (v.dataset.poster) { v.poster = v.dataset.poster; v.removeAttribute('data-poster'); }
+      posterIO.unobserve(v);
+    });
+  }, { rootMargin: '800px 0px' });
+  document.querySelectorAll('video[data-poster]').forEach(function (v) { posterIO.observe(v); });
+
+  // Videos only load and play while on screen
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function play(v) { if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
+
+  var single = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) play(e.target); else e.target.pause(); });
+  }, { rootMargin: '200px 0px' });
+  document.querySelectorAll('video[data-lazy]').forEach(function (v) { single.observe(v); });
+
+  // Cycling media: each clip plays to its end (or data-switch-at seconds), then the next fades in
+  document.querySelectorAll('[data-cycle]').forEach(function (box) {
+    var items = Array.prototype.slice.call(box.querySelectorAll('.cycle'));
+    var cur = 0, visible = false;
+    function show(i) {
+      items[cur].classList.remove('active'); items[cur].pause();
+      cur = i; var v = items[cur];
+      v.classList.add('active'); v.currentTime = 0;
+      if (visible) play(v);
+    }
+    items.forEach(function (v, i) {
+      var next = function () { if (i === cur) show((i + 1) % items.length); };
+      if (v.dataset.switchAt) {
+        var at = parseFloat(v.dataset.switchAt);
+        v.addEventListener('timeupdate', function () { if (v.currentTime >= at) next(); });
+      }
+      v.addEventListener('ended', next);
+    });
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        visible = e.isIntersecting;
+        if (visible) play(items[cur]); else items[cur].pause();
+      });
+    }, { rootMargin: '200px 0px' }).observe(box);
+  });
+})();
+</script>
+<script data-goatcounter="https://siddharthramasushil.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
