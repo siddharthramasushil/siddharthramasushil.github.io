@@ -292,6 +292,7 @@ html[data-theme="dark"] .map iframe { filter: invert(.9) hue-rotate(180deg) satu
 .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--faint); font-size: .98rem; }
 .footer a { color: var(--muted); text-decoration: none; }
 .footer a:hover { color: var(--accent); }
+.visits::before { content: "·"; margin: 0 10px; }
 
 /* ---------- MOBILE MENU ---------- */
 .drawer { position: fixed; inset: 0; z-index: 60; display: none; }
@@ -849,7 +850,7 @@ html[data-theme="dark"] .map iframe { filter: invert(.9) hue-rotate(180deg) satu
 
 <footer class="footer">
   <div class="wrap footer-inner">
-    <span>© <span id="year">2026</span> Siddharth Rama Sushil</span>
+    <span>© <span id="year">2026</span> Siddharth Rama Sushil<span class="visits" id="visits" hidden></span></span>
     <a href="https://github.com/daatsi-aeres" target="_blank" rel="noopener">GitHub</a>
   </div>
 </footer>
@@ -930,6 +931,15 @@ html[data-theme="dark"] .map iframe { filter: invert(.9) hue-rotate(180deg) satu
     });
   }, { rootMargin: '800px 0px' });
   document.querySelectorAll('video[data-poster]').forEach(function (v) { posterIO.observe(v); });
+
+  // Discreet visit count in the footer (shown only once GoatCounter's public counter answers)
+  fetch('https://siddharthramasushil.goatcounter.com/counter/TOTAL.json')
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (d) {
+      var el = document.getElementById('visits');
+      if (d && d.count && d.count !== '0') { el.textContent = d.count + ' visits'; el.hidden = false; }
+    })
+    .catch(function () {});
 
   // Videos only load and play while on screen
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
