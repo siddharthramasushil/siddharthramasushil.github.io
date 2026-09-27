@@ -1,1 +1,31 @@
-{"updated":null,"total":0,"countries":[]}
+{
+  "updated": "2026-09-27T22:37:24Z",
+  "total": 17,
+  "countries": [
+    {
+      "id": "US",
+      "name": "United States",
+      "count": 12
+    },
+    {
+      "id": "NL",
+      "name": "Netherlands",
+      "count": 2
+    },
+    {
+      "id": "CA",
+      "name": "Canada",
+      "count": 1
+    },
+    {
+      "id": "ES",
+      "name": "Spain",
+      "count": 1
+    },
+    {
+      "id": "TR",
+      "name": "Turkey",
+      "count": 1
+    }
+  ]
+}
