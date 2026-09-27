@@ -1,0 +1,40 @@
+# Refreshes assets/data/visits.json from GoatCounter every 6 hours.
+# Needs a repository secret GOATCOUNTER_TOKEN: an API key with "read statistics" permission
+# (GoatCounter -> your username -> API -> New API key). The key stays secret; only counts are published.
+name: Update visitor map
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: visits
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch visit counts
+        env:
+          TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+          SITE: https://siddharthramasushil.goatcounter.com
+        run: |
+          set -euo pipefail
+          api() { curl -sf -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" "$SITE/api/v0/$1"; }
+          START=2026-01-01T00:00:00Z
+          # visits per country; the total is their sum (GoatCounter counts a "visit" once per visitor session)
+          locs=$(api "stats/locations?start=$START&limit=250" | jq '[.stats[] | select(.count > 0) | {id, name, count}]')
+          jq -n --argjson c "$locs" --arg u "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{updated: $u, total: ([$c[].count] | add // 0), countries: $c}' > assets/data/visits.new.json
+          # only commit when the numbers change
+          if ! cmp -s <(jq -S 'del(.updated)' assets/data/visits.new.json) <(jq -S 'del(.updated)' assets/data/visits.json 2>/dev/null || echo '{}'); then
+            mv assets/data/visits.new.json assets/data/visits.json
+            git config user.name "visits-bot"
+            git config user.email "visits-bot@users.noreply.github.com"
+            git add assets/data/visits.json
+            git commit -m "Update visitor map data"
+            git push
+          else
+            rm assets/data/visits.new.json
+            echo "No change in visit counts"
+          fi
