@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-06T00:43:13Z",
-  "total": 59,
+  "updated": "2026-10-06T06:39:41Z",
+  "total": 61,
   "countries": [
     {
       "id": "US",
       "name": "United States",
-      "count": 41
+      "count": 42
     },
     {
       "id": "IN",
@@ -16,6 +16,11 @@
       "id": "NL",
       "name": "Netherlands",
       "count": 2
+    },
+    {
+      "id": "AU",
+      "name": "Australia",
+      "count": 1
     },
     {
       "id": "CA",
