@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-13T06:45:40Z",
-  "total": 67,
+  "updated": "2026-10-14T12:58:45Z",
+  "total": 68,
   "countries": [
     {
       "id": "US",
@@ -30,6 +30,11 @@
     {
       "id": "ES",
       "name": "Spain",
+      "count": 1
+    },
+    {
+      "id": "LV",
+      "name": "Latvia",
       "count": 1
     },
     {
