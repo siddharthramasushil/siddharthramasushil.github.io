@@ -1,16 +1,21 @@
 {
-  "updated": "2026-10-15T00:57:02Z",
-  "total": 69,
+  "updated": "2026-10-15T13:01:38Z",
+  "total": 71,
   "countries": [
     {
       "id": "US",
       "name": "United States",
-      "count": 47
+      "count": 48
     },
     {
       "id": "IN",
       "name": "India",
       "count": 14
+    },
+    {
+      "id": "LV",
+      "name": "Latvia",
+      "count": 2
     },
     {
       "id": "NL",
@@ -30,11 +35,6 @@
     {
       "id": "ES",
       "name": "Spain",
-      "count": 1
-    },
-    {
-      "id": "LV",
-      "name": "Latvia",
       "count": 1
     },
     {
