@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-21T01:00:55Z",
-  "total": 77,
+  "updated": "2026-10-21T13:01:07Z",
+  "total": 78,
   "countries": [
     {
       "id": "US",
@@ -10,7 +10,7 @@
     {
       "id": "IN",
       "name": "India",
-      "count": 15
+      "count": 16
     },
     {
       "id": "LV",
