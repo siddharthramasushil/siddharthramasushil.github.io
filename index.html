@@ -653,7 +653,7 @@ html[data-theme="dark"] .card, html[data-theme="dark"] .section.alt .card { back
         </div>
         <div class="card-body">
           <h3>Robust ORB-SLAM Pipeline</h3>
-          <p>CLAHE contrast enhancement and Wiener deblurring in front of ORB-SLAM3 keep feature tracking stable under camera shake and changing light, in real time.</p>
+          <p>Adaptive CLAHE and guided filtering, with optional IMU-guided Wiener deblurring, in front of ORB-SLAM3. In glare-heavy corridors it cut time in degraded tracking by 23%, in real time.</p>
           <div class="card-foot">
           <p class="meta"><span class="nw">ORB-SLAM3</span> · <span class="nw">C++</span> · <span class="nw">RealSense</span> · <span class="nw">Docker</span></p>
           <div class="links">
@@ -703,12 +703,29 @@ html[data-theme="dark"] .card, html[data-theme="dark"] .section.alt .card { back
         </div>
         <div class="card-body">
           <h3>Robust Plane Segmentation for 3D Pose Estimation</h3>
-          <p>Geometry-first, real-time plane segmentation that feeds high-precision pose estimation.</p>
+          <p>6-DoF pose of box faces from raw depth point clouds: RANSAC, clustering, MLS and a minimum-area rectangle. Under 0.2° mean normal error on synthetic benchmarks; tested with CI.</p>
           <div class="card-foot">
           <p class="meta"><span class="nw">C++</span> · <span class="nw">Point Clouds</span> · <span class="nw">Sensor Fusion</span></p>
           <div class="links">
             <a href="https://github.com/daatsi-aeres/plane_segmentation_tool" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-code"/></svg>Code</a>
             <a href="https://medium.com/@siddharthramasushil/building-a-robust-plane-segmentation-pipeline-for-3d-pose-estimation-in-robotics-cb89243492fb" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-file"/></svg>Article</a>
+          </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media">
+          <video data-lazy muted loop playsinline preload="none" src="assets/gifs/tidybot.mp4" data-poster="assets/gifs/tidybot.poster.webp" aria-label="TidyBot collecting objects in a simulated home"></video>
+        </div>
+        <div class="card-body">
+          <h3>TidyBot: Home-Tidying Mobile Manipulator</h3>
+          <p>A custom skid-steer robot with a 3-DOF arm that sweeps a two-room home with Nav2, collects five objects and brings them to a box, fully autonomous.</p>
+          <div class="card-foot">
+          <p class="meta"><span class="nw">ROS 2</span> · <span class="nw">Nav2</span> · <span class="nw">Gazebo</span> · <span class="nw">URDF</span></p>
+          <div class="links">
+            <a href="https://github.com/daatsi-aeres/home-tidying-robot" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-code"/></svg>Code</a>
+            <a href="https://youtu.be/L3voKXgXxlE" target="_blank" rel="noopener"><svg class="i i-s"><use href="#i-file"/></svg>Video</a>
           </div>
           </div>
         </div>
