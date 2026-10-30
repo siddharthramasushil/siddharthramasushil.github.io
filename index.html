@@ -526,10 +526,18 @@ html[data-theme="dark"] .card, html[data-theme="dark"] .section.alt .card { back
       <div class="row">
         <div>
           <h4>Agentic Robotics Orchestration</h4>
-          <p>Designed and shipped the <b>production C++ library</b> that validates, dispatches and tracks the robot skills a vision-language model plans, with non-blocking ROS 2 execution. Fault-injection tests over DDS caught a crash bug before release, and I brought up a <b>hardware-in-the-loop</b> bench on ARM64.</p>
+          <p>Designed and shipped the <b>production C++ library</b> that validates, dispatches and tracks the robot skills a vision-language model plans, with non-blocking ROS 2 execution. Fault-injection tests over DDS caught a crash bug before release, and with the V&amp;V team I brought up a <b>hardware-in-the-loop</b> bench on the robot's ARM64 edge computer.</p>
         </div>
         <div class="row-media"><div class="video"><video class="only-light" data-lazy muted loop playsinline preload="none" src="assets/videos/agentic-orchestration.mp4" data-poster="assets/videos/agentic-orchestration.poster.webp" aria-label="Animation of the agentic orchestration flow: a spoken command, a vision-language model plan, skill dispatch, then real-time control"></video>
           <video class="only-dark" data-lazy muted loop playsinline preload="none" src="assets/videos/agentic-orchestration-dark.mp4" data-poster="assets/videos/agentic-orchestration-dark.poster.webp" aria-label="Animation of the agentic orchestration flow: a spoken command, a vision-language model plan, skill dispatch, then real-time control"></video></div></div>
+      </div>
+
+      <div class="row flip">
+        <div>
+          <h4>Agentic Loop Prototype</h4>
+          <p>Before the library existed, I ran the full agentic loop on a <b>Unitree G1</b> humanoid: a cloud vision-language model planned from what the robot saw, and the robot carried out each step as a skill. What broke here shaped the library: the planner was too slow to sit inside the control loop, every skill was wired in differently, and a bare pass or fail never told the planner why.</p>
+        </div>
+        <div class="row-media"><div class="video"><video data-lazy muted loop playsinline preload="none" src="assets/videos/agentic-loop-prototype.mp4" data-poster="assets/videos/agentic-loop-prototype.poster.webp" aria-label="The G1's head-camera view as it picks up a cup during the agentic loop, with its 3D frame view below"></video></div></div>
       </div>
     </article>
 
