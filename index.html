@@ -535,7 +535,7 @@ html[data-theme="dark"] .card, html[data-theme="dark"] .section.alt .card { back
       <div class="row flip">
         <div>
           <h4>Agentic Loop Prototype</h4>
-          <p>Before the library existed, I ran the full agentic loop on a <b>Unitree G1</b> humanoid: a cloud vision-language model planned from what the robot saw, and the robot carried out each step as a skill. What broke here shaped the library: the planner was too slow to sit inside the control loop, every skill was wired in differently, and a bare pass or fail never told the planner why.</p>
+          <p>The agentic loop running on a <b>Unitree G1</b> humanoid. The robot sees the table through its head camera and sends the image to a vision-language model. The model decides the next step, here picking up the cup, and calls one of the robot's skills to do it. When the skill finishes, the result goes back to the model, and it plans the step after that.</p>
         </div>
         <div class="row-media"><div class="video"><video data-lazy muted loop playsinline preload="none" src="assets/videos/agentic-loop-prototype.mp4" data-poster="assets/videos/agentic-loop-prototype.poster.webp" aria-label="The G1's head-camera view as it picks up a cup during the agentic loop, with its 3D frame view below"></video></div></div>
       </div>
