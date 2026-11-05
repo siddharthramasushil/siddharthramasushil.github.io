@@ -1,11 +1,11 @@
 {
-  "updated": "2026-11-04T19:49:30Z",
-  "total": 105,
+  "updated": "2026-11-05T20:00:22Z",
+  "total": 106,
   "countries": [
     {
       "id": "US",
       "name": "United States",
-      "count": 77
+      "count": 78
     },
     {
       "id": "IN",
